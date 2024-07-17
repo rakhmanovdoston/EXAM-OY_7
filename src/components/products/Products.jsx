@@ -142,7 +142,7 @@ const Products = ({ cart, setCart }) => {
         </select>
       </div>
       <div className="mt-[80px] flex gap-[50px] container">
-        <aside className="w-[270px] ">
+        <aside className="w-[250px] mx-[50px] my-[70px]">
           <img src={Line} alt="" />
           <div>
             <div
@@ -151,7 +151,7 @@ const Products = ({ cart, setCart }) => {
                 toggleOpenedBrands(setClickOpenBrands, clickOpenBrands)
               }
             >
-              <h3>BRAND</h3>
+              <h3 className="ml-[25px] m-[15px]">BRAND</h3>
               <IoMdArrowDropdown
                 className={`transform transition-transform ${
                   clickOpenBrands ? "rotate-180" : "rotate-0"
@@ -159,28 +159,36 @@ const Products = ({ cart, setCart }) => {
               />
             </div>
             {clickOpenBrands && (
-              <ul className="">
+              <ul className="w-[200px] m-auto">
                 {brands.map((brand, index) => (
-                  <li key={index}>
+                  <li className="flex items-center" key={index}>
                     <input
-                      type="radio"
+                      type="checkbox"
                       value={brand}
                       name="brand"
                       id={brand}
                       checked={brand === selectedBrands}
                       onChange={(e) => setSelectedBrands(e.target.value)}
+                      className="w-[20px] h-[20px] mt-[5px]"
                     />
-                    <label htmlFor={brand}>{brand}</label>
+                    <label htmlFor={brand} className="ml-[5px]">
+                      {brand}
+                    </label>
                   </li>
                 ))}
-                <button onClick={() => setSelectedBrands("")}>Reset</button>
+                <button
+                  className="w-[120px] h-[30px] rounded-md border-2 border-solid border-[#0BA42D] mt-[20px]"
+                  onClick={() => setSelectedBrands("")}
+                >
+                  Reset
+                </button>
               </ul>
             )}
             <img src={Line} alt="" className="my-2" />
           </div>
           <div>
-            <h3>COLORS</h3>
-            <ul className={" w-[200px] gap-1  flex flex-wrap"}>
+            <h3 className="ml-[25px] m-[15px]">COLORS</h3>
+            <ul className={" w-[200px] gap-1  flex flex-wrap m-auto"}>
               {colors.map((color, index) => (
                 <li key={index}>
                   <div
@@ -196,11 +204,16 @@ const Products = ({ cart, setCart }) => {
                   />
                 </li>
               ))}
-              <button onClick={() => setSelectedColors("")}>Reset</button>
+              <button
+                className="w-[120px] h-[30px] rounded-md border-2 border-solid border-[#0BA42D] mt-[30px] mr-[80px]"
+                onClick={() => setSelectedColors("")}
+              >
+                Reset
+              </button>
             </ul>
           </div>
         </aside>
-        <main className="w-[1250px] m-auto">
+        <main className="w-[1250px] m-auto p-[50px]">
           {loading ? (
             <p>Loading...</p>
           ) : products.length ? (
