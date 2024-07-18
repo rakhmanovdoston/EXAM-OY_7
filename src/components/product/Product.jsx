@@ -21,7 +21,7 @@ const Product = () => {
   }, [productId]);
 
   return (
-    <div className="flex justify-around mb-5">
+    <div className="flex justify-around mb-5 mt-10">
       <div className="w-[700px] h-[700px] flex flex-col gap-10">
         {product && (
           <>
