@@ -52,7 +52,7 @@ const Product = () => {
             </div>
             <img className="my-3" src={line} alt="" />
             <p className="readex font-bold text-[36px]">
-              {`$${product.price}`}or 99.99/month
+              {`$${product.price}`} or 99.99/month
             </p>
           </>
         )}

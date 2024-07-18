@@ -99,7 +99,7 @@ function App() {
                 to={"/cart"}
               >
                 {cart.length > 0 && (
-                  <span className="min-w-[10px] min-h-[10px] bg-green-400 rounded-[50%] text-[12px] py-[2px] px-[6px] text-white">
+                  <span className="min-w-[10px] min-h-[10px] bg-green-400 rounded-[50px] text-[12px] py-[2px] px-[6px] text-white">
                     {cart.length}
                   </span>
                 )}

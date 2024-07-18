@@ -53,3 +53,7 @@
     left: 42%;
     transform: translateX(-50%);
 }
+
+.bottom {
+    border-bottom: 1px dashed #6A6969;
+}

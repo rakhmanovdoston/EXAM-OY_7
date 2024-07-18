@@ -110,7 +110,7 @@ const Products = ({ cart, setCart }) => {
           name="price"
           id=""
           value={byPrice}
-          onChange={(e) => sortProductsByPrice(e.target.value)}
+          onChange={(e) => setByPrice(e.target.value)}
         >
           <option value="">All</option>
           <option value="asc">Price: High to Low</option>
