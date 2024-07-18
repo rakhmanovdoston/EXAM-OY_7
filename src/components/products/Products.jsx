@@ -116,8 +116,8 @@ const Products = ({ cart, setCart }) => {
           onChange={(e) => setByPrice(e.target.value)}
         >
           <option value="">All</option>
-          <option value="asc">Price: High to Low</option>
-          <option value="desc">Price: Low to High</option>
+          <option value="desc">Price: High to Low</option>
+          <option value="asc">Price: Low to High</option>
         </select>
       </div>
       <div className="mt-[80px] flex gap-[50px] container">
