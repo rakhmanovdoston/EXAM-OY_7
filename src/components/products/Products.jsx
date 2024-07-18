@@ -9,7 +9,7 @@ import Line from "../../assets/Line 27.svg";
 
 import Card from "../card/Card";
 
-const base_url = import.meta.env.VITE_BASE_URL;
+const base_url = "https://headphones-server.onrender.com";
 
 const Products = ({ cart, setCart }) => {
   const products = useSelector((store) => store.productsReducer.products);
