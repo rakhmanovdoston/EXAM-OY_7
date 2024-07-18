@@ -2,7 +2,7 @@ import { GiCheckMark } from "react-icons/gi";
 
 const Home = () => {
   return (
-    <main className="main w-full h-[745px] -z-30">
+    <main className=" w-full h-[100vh]  -z-30 bg-green-500 mb-6">
       <div className=" text-white pt-[200px] ml-[220px]">
         <article>
           <h1 className="hammer font-normal text-[60px] bg-gradient-to-r from-[white] to-[#14FF00] text-transparent bg-clip-text inline-block">

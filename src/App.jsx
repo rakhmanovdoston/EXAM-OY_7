@@ -14,7 +14,7 @@ import logo from "./assets/GG (1).svg";
 import { VscCallIncoming } from "react-icons/vsc";
 import flag from "./assets/Group.svg";
 import earth from "./assets/Vector.svg";
-import originalLogo from "./assets/GG.svg";
+import originalLogo from "./assets/originalLogo.svg";
 import { CiSearch } from "react-icons/ci";
 import { AiOutlineUser } from "react-icons/ai";
 import { CiShoppingCart } from "react-icons/ci";
@@ -52,9 +52,7 @@ function App() {
       <main className="z-20 ">
         <Router>
           <header
-            className={`w-full h-[110px] flex justify-around items-center ${
-              "bg-white" ? "text-black" : "text-white"
-            } font-extralight`}
+            className={`w-full h-[110px] flex justify-around items-center bg-green-900 text-white font-extralight`}
           >
             <img src={originalLogo} alt="" />
             <nav className="Inter">

@@ -93,7 +93,7 @@ const Products = ({ cart, setCart }) => {
 
   return (
     <div className="">
-      <div className="productsMain w-full h-[630px] -z-30">
+      {/* <div className=" w-full h-[630px] -z-30 bg-green-500">
         <article className="text-white flex flex-col gap-6 py-[215px] px-[180px]">
           <p className="hammer font-normal text-[20px]">
             / Start / Categories <br /> / Headphones and audio for gaming
@@ -102,8 +102,8 @@ const Products = ({ cart, setCart }) => {
             Headphones AND AUDIO <br /> FOR GAMING
           </h1>
         </article>
-      </div>
-      <div className="w-full h-[85px] flex justify-between items-center px-[130px] bg-[#D5F8CF] text-[#0BA42D]">
+      </div> */}
+      <div className="w-full h-[85px] flex justify-between items-center px-[130px] bg-[#D5F8CF] text-[#0BA42D] mt-10">
         <h3>Filter By:</h3>
         <select
           className="bg-transparent outline-none"
