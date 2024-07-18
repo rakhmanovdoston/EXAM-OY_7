@@ -1,5 +1,5 @@
 import axios from "axios";
 
 export const api = axios.create({
-    baseURL:"https://headphones-server.onrender.com"
+    baseURL:`${import.meta.env.VITE_BASE_URL}`
 })
