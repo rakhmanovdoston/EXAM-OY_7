@@ -7,7 +7,7 @@ import { HighToLow } from "../../store/productslice";
 
 import Line from "../../assets/Line 27.svg";
 
-import Cart from "../cart/Cart";
+import Card from "../card/Card";
 
 const base_url = import.meta.env.VITE_BASE_URL;
 
@@ -219,7 +219,7 @@ const Products = ({ cart, setCart }) => {
           ) : products.length ? (
             <div className="ul_container">
               {products.map((product) => (
-                <Cart
+                <Card
                   key={product.id}
                   product={product}
                   cart={cart}

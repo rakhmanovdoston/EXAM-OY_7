@@ -3,17 +3,18 @@ import "./App.css";
 import Home from "./components/home/Home";
 import Products from "./components/products/Products";
 import Product from "./components/product/Product";
+import Cart from "./components/cart/Cart";
 import {
   BrowserRouter as Router,
   Routes,
   Route,
   NavLink,
 } from "react-router-dom";
-import logo from "./assets/GG.svg";
+import logo from "./assets/GG (1).svg";
 import { VscCallIncoming } from "react-icons/vsc";
 import flag from "./assets/Group.svg";
 import earth from "./assets/Vector.svg";
-import originalLogo from "./assets/GameGeek.svg";
+import originalLogo from "./assets/GG.svg";
 import { CiSearch } from "react-icons/ci";
 import { AiOutlineUser } from "react-icons/ai";
 import { CiShoppingCart } from "react-icons/ci";
@@ -50,7 +51,11 @@ function App() {
       </div>
       <main className="z-20 ">
         <Router>
-          <header className="w-full h-[110px] flex justify-around items-center text-white font-extralight">
+          <header
+            className={`w-full h-[110px] flex justify-around items-center ${
+              "bg-white" ? "text-black" : "text-white"
+            } font-extralight`}
+          >
             <img src={originalLogo} alt="" />
             <nav className="Inter">
               <ul className="w-full items-center justify-center flex gap-8">
@@ -82,10 +87,26 @@ function App() {
                 </li>
               </ul>
             </nav>
-            <div className="flex gap-3 text-white">
+            <div
+              className={`flex gap-3 ${
+                "bg-white" ? "text-black" : "text-white"
+              }`}
+            >
               <CiSearch className="w-[20px] h-[20px]" />
               <AiOutlineUser className="w-[20px] h-[20px]" />
-              <CiShoppingCart className="w-[20px] h-[20px]" />
+              <NavLink
+                className="flex flex-row-reverse gap-1 items-center"
+                to={"/cart"}
+              >
+                {cart.length > 0 && (
+                  <span className="min-w-[10px] min-h-[10px] bg-green-400 rounded-[50%] text-[12px] py-[2px] px-[6px] text-white">
+                    {cart.length}
+                  </span>
+                )}
+                <div>
+                  <CiShoppingCart />
+                </div>
+              </NavLink>
             </div>
           </header>
           <Routes>
@@ -95,6 +116,7 @@ function App() {
               element={<Products cart={cart} setCart={setCart} />}
             />
             <Route path="/products/:productId" element={<Product />} />
+            <Route path="/cart" element={<Cart products={cart} />} />
           </Routes>
         </Router>
       </main>
