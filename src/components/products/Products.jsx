@@ -33,16 +33,18 @@ const Products = ({ cart, setCart }) => {
 
   useEffect(() => {
     async function fetchingBrands() {
-      const response = await api.get("/brands");
-      setBrands(response.data);
+      const response = await fetch(`${base_url}/brands`);
+      const data = await response.json();
+      setBrands(data);
     }
     fetchingBrands();
   }, []);
 
   useEffect(() => {
     async function fetchingColors() {
-      const response = await api.get(`/colors`);
-      setColors(response.data);
+      const response = await fetch(`${base_url}/colors`);
+      const data = await response.json();
+      setColors(data);
     }
     fetchingColors();
   }, []);
@@ -68,9 +70,10 @@ const Products = ({ cart, setCart }) => {
       }
 
       try {
-        const response = await api.get(`${query}`);
-        setByPrice(response.data);
-        dispatch(addProducts(response.data));
+        const response = await fetch(`${query}`);
+        const data = await response.json();
+        setByPrice(data);
+        dispatch(addProducts(data));
       } catch (error) {
         console.error(error);
       } finally {
