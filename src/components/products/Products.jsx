@@ -194,7 +194,7 @@ const Products = ({ cart, setCart }) => {
         </aside>
         <main className="w-[1250px] m-auto p-[50px]">
           {loading ? (
-            <p>Loading...</p>
+            <span class="loader"></span>
           ) : products.length ? (
             <div className="ul_container">
               {sortProductsByPrice.map((product) => (
