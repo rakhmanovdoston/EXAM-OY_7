@@ -15,7 +15,7 @@ const Products = ({ cart, setCart }) => {
   const products = useSelector((store) => store.productsReducer.products);
   const dispatch = useDispatch();
 
-  const [byPrice, setByPrice] = useState([]);
+  const [byPrice, setByPrice] = useState("");
 
   const [loading, setLoading] = useState(false);
 
@@ -81,40 +81,15 @@ const Products = ({ cart, setCart }) => {
     fetchingProducts();
   }, [selectedBrands, selectedColors]);
 
-  // useEffect(() => {
-  //   setByPrice([
-  //     ...byPrice.sort((a, b) => {
-  //       return a.price - b.price;
-  //     }),
-  //   ]);
-  // });
-
-  function sortProductsByPrice(e) {
-    if (e === "HighToLow") {
-      dispatch(HighToLow());
+  const sortProductsByPrice = [...products].sort((a, b) => {
+    if (byPrice === "asc") {
+      return a.price - b.price;
+    } else if (byPrice === "desc") {
+      return b.price - a.price;
+    } else {
+      return 0;
     }
-    if (e === "LowToHigh") {
-      console.log("low");
-    }
-    if (e === "All") {
-      console.log("all");
-    }
-    // e.stopPropagation();
-    // if (e.target.value === "LowToHigh") {
-    //   setByPrice([
-    //     ...byPrice.sort((a, b) => {
-    //       return a.price - b.price;
-    //     }),
-    //   ]);
-    // }
-    // if (e.target.value === "HighToLow") {
-    //   setByPrice([
-    //     ...byPrice.sort((a, b) => {
-    //       return b.price - a.price;
-    //     }),
-    //   ]);
-    // }
-  }
+  });
 
   return (
     <div className="">
@@ -134,11 +109,12 @@ const Products = ({ cart, setCart }) => {
           className="bg-transparent outline-none"
           name="price"
           id=""
+          value={byPrice}
           onChange={(e) => sortProductsByPrice(e.target.value)}
         >
-          <option value="All">All</option>
-          <option value="HighToLow">Price: High to Low</option>
-          <option value="LowToHigh">Price: Low to High</option>
+          <option value="">All</option>
+          <option value="asc">Price: High to Low</option>
+          <option value="desc">Price: Low to High</option>
         </select>
       </div>
       <div className="mt-[80px] flex gap-[50px] container">
@@ -218,7 +194,7 @@ const Products = ({ cart, setCart }) => {
             <p>Loading...</p>
           ) : products.length ? (
             <div className="ul_container">
-              {products.map((product) => (
+              {sortProductsByPrice.map((product) => (
                 <Card
                   key={product.id}
                   product={product}
